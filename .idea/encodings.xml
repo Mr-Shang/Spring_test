@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/com/zttc/spring/dao/GroupDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/zttc/spring/dao/IGroupDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/zttc/spring/dao/IUserDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/zttc/spring/dao/UserDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/zttc/spring/model/Group.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/zttc/spring/model/User.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/zttc/spring/test/TestJdbc.java" charset="UTF-8" />
+  </component>
+</project>
