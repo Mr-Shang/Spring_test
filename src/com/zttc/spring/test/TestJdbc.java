@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by �� on 2016/1/30.dd
@@ -62,5 +63,13 @@ public class TestJdbc {
         User user=userJdbcDao.load(3);
         System.out.println(user.getNickname());
         System.out.println(user.getGroup().getName());
+    }
+    @Test
+    public void list(){
+        List<User> users=userJdbcDao.list();
+        for (User user:users){
+            System.out.println(user);
+            System.out.println("------------");
+        }
     }
 }

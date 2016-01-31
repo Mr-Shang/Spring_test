@@ -49,28 +49,29 @@ public class UserDao implements IUserDao {
     @Override
     public User load(int id) {
         String sql="SELECT   t1.id uid,t1.* ,t2.* FROM t_user t1 LEFT JOIN t_group t2 ON  t1.groupid=t2.id WHERE t1.id=?";
-       User users=(User) jdbcTemplate.queryForObject(sql, new Object[]{id}, new RowMapper<User>() {
-           @Override
-           public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-               Group group = new Group();
-               group.setId(rs.getInt("id"));
-               group.setName(rs.getString("name"));
-               User user = new User();
-               user.setGroup(group);
-               user.setId(rs.getInt("uid"));
-               user.setUsername(rs.getString("user_name"));
-               user.setPassword(rs.getString("pass_word"));
-               user.setNickname(rs.getString("nick_name"));
-
-
-               return user;
-           }
-       });
+       User users=(User) jdbcTemplate.queryForObject(sql, new Object[]{id}, new UserMapper());
         return users;
     }
 
+    private class UserMapper implements RowMapper<User>{
+
+        public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Group group = new Group();
+            group.setId(rs.getInt("id"));
+            group.setName(rs.getString("name"));
+            User user = new User();
+            user.setGroup(group);
+            user.setId(rs.getInt("uid"));
+            user.setUsername(rs.getString("user_name"));
+            user.setPassword(rs.getString("pass_word"));
+            user.setNickname(rs.getString("nick_name"));
+            return user;
+        }
+    }
     @Override
-    public List<User> list(String sql) {
-        return null;
+    public List<User> list() {
+        String sql = "SELECT   t1.id uid,t1.* ,t2.* FROM t_user t1 LEFT JOIN t_group t2 ON  t1.groupid=t2.id";
+
+        return jdbcTemplate.query(sql, (Object[]) null,new UserMapper());
     }
 }

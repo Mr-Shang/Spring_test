@@ -1,7 +1,7 @@
 package com.zttc.spring.model;
 
 /**
- * Created by ¶« on 2016/1/30.
+ * Created by ï¿½ï¿½ on 2016/1/30.
  */
 public class Group {
     private int id;
@@ -21,5 +21,13 @@ public class Group {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
